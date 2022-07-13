@@ -128,6 +128,9 @@ public class ResourceCentreTest {
 	      
 	        assertEquals("Check that ViewAllChromebookList", testOutput, allChromebook);
 		
+		// Test if Item list is not null but empty, so that can add a new item
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+		
 	}
 
 	@Test
@@ -228,6 +231,7 @@ public class ResourceCentreTest {
 		cb2.setIsAvailable(false);
 		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0012");
 		assertTrue("Test if loaned out chromebook CB0012 is returned- true", isReturned);
+		
 		//error
 		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0013");
 		assertFalse("Test if non-existing chromebook CB0013 is returned - false?", isReturned);
